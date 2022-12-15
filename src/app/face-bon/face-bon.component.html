@@ -1,0 +1,8 @@
+<h2 class="face-snap-card">{{title}}</h2>
+<p>{{description}}</p>
+<p>published in: {{createdDate}}</p>
+<p>
+  <button (click)="onSnap()">{{buttonText}}</button>
+  🤌 {{snaps}}
+</p>
+<img [src]="imageUrl" [alt]="title">
