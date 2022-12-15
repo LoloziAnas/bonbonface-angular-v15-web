@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { FaceBonComponent } from './face-bon/face-bon.component';
 import { FaceBonListComponent } from './face-bon-list/face-bon-list.component';
 import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { HeaderComponent } from './header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

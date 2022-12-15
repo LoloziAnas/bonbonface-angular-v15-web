@@ -35,7 +35,7 @@ export class FaceSnapsService {
   getAllFaceSnaps():FaceSnap[]{
     return this.faceSnaps;
   }
-  /*Method That increment and decriment the number of snap of a specific FaceSnap
+  /*Method That increment and decrement the number of snap of a specific FaceSnap
   * @params{faceSnapId}: identifier of face snap
   * @params{snapType}: indicate the type on operation
   * */

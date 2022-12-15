@@ -8,7 +8,4 @@ import {FaceSnap} from './models/FaceSnap';
 export class AppComponent {
   title = 'BonBonSnap';
 
-
-
-
 }
