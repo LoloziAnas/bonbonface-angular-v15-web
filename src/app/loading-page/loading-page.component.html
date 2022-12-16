@@ -3,4 +3,12 @@
   <div class="loading-links">
     <button (click)="onContinue()">Continue to BonBonFace</button>
   </div>
+  <form #userForm="ngForm" (ngSubmit)="onSubmitForm(userForm)">
+    <label for="emailInput">Sign up to receive our newsletter</label>
+    <input type="email" id="emailInput" name="userEmail" [(ngModel)]="userEmail">
+
+    <label for="phoneInput">Verifier your Sign up With Phone Number</label>
+    <input type="text" id="phoneInput" name="userPhone" [(ngModel)]="userPhone">
+    <button type="submit">OK</button>
+  </form>
 </div>

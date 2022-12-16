@@ -8,6 +8,8 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
 import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NewFaceBonComponent } from './new-face-bon/new-face-bon.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.compon
     FaceBonListComponent,
     HeaderComponent,
     LoadingPageComponent,
-    FaceBonDetailComponent
+    FaceBonDetailComponent,
+    NewFaceBonComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
