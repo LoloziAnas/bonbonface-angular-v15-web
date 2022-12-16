@@ -7,7 +7,6 @@ import { FaceBonListComponent } from './face-bon-list/face-bon-list.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
-import { SingleFaceBonComponent } from './single-face-bon/single-face-bon.component';
 import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.compon
     FaceBonListComponent,
     HeaderComponent,
     LoadingPageComponent,
-    SingleFaceBonComponent,
     FaceBonDetailComponent
   ],
   imports: [
