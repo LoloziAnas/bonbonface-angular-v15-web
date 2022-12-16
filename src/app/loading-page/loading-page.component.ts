@@ -8,12 +8,14 @@ import {Router} from "@angular/router";
 })
 export class LoadingPageComponent implements OnInit {
 
+  // Inject router instance into the construct
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  /*Method that navigate to face snaps list component*/
+  onContinue() {
+    this.router.navigateByUrl('facesnaps').then();
   }
 
-  onContinue() {
-    this.router.navigateByUrl('facesnaps');
+  ngOnInit(): void {
   }
 }

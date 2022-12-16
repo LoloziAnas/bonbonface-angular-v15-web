@@ -11,14 +11,14 @@ import {Router} from "@angular/router";
 export class FaceBonComponent implements OnInit {
 
   @Input() faceSnap!: FaceSnap;
-  buttonText!: string;
 
+  // Inject face snaps service and Router to the construct.
   constructor(private faceSnapsService: FaceSnapsService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  /*Function that navigate by url to view face snap in details*/
   onViewFaceSnap() {
-    this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`);
+    this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`).then();
   }
 }
