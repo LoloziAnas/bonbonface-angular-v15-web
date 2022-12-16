@@ -6,13 +6,19 @@ import { FaceBonComponent } from './face-bon/face-bon.component';
 import { FaceBonListComponent } from './face-bon-list/face-bon-list.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoadingPageComponent } from './loading-page/loading-page.component';
+import { SingleFaceBonComponent } from './single-face-bon/single-face-bon.component';
+import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FaceBonComponent,
     FaceBonListComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoadingPageComponent,
+    SingleFaceBonComponent,
+    FaceBonDetailComponent
   ],
   imports: [
     BrowserModule,

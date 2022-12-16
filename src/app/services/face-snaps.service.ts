@@ -12,7 +12,7 @@ export class FaceSnapsService {
       description: 'My best dude since childhood.',
       imageUrl: 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
       createdDate: new Date(),
-      snaps: 0
+      snaps: 58
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export class FaceSnapsService {
       description: 'Mmmh que c\'est bon !',
       imageUrl: 'https://wtop.com/wp-content/uploads/2020/06/HEALTHYFRESH.jpg',
       createdDate: new Date(),
-      snaps: 0
+      snaps: 1000
     },
     {
       id: 3,
@@ -28,12 +28,21 @@ export class FaceSnapsService {
       description: 'Un endroit magnifique pour les randonnées.',
       imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Three_Rock_Mountain_Southern_Tor.jpg/2880px-Three_Rock_Mountain_Southern_Tor.jpg',
       createdDate: new Date(),
-      snaps: 0
+      snaps: 98
     }
   ];
   /*Function that return all the face snaps from the backend*/
   getAllFaceSnaps():FaceSnap[]{
     return this.faceSnaps;
+  }
+  /*Function that return a specific faceSnap based on a given id
+  * @params{faceSnapId}: face snap identifier.
+  * @return a faceSnap object
+  * */
+  getFaceSnapById(faceSnapId: number): FaceSnap{
+    const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId );
+    if (faceSnap) return faceSnap;
+    else throw new Error('FaceSnap not found !!');
   }
   /*Method That increment and decrement the number of snap of a specific FaceSnap
   * @params{faceSnapId}: identifier of face snap
