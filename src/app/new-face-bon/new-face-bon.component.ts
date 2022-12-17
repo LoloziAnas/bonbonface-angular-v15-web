@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FaceSnapsService} from "../services/face-snaps.service";
+import {map, Observable, tap} from "rxjs";
+import {FaceSnap} from "../models/FaceSnap";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-face-bon',
@@ -9,15 +13,24 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class NewFaceBonComponent implements OnInit {
 
   snapForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  faceSnapPreview$!: Observable<FaceSnap>;
+  constructor(private faceSnapsService: FaceSnapsService ,private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.snapForm = this.formBuilder.group({
-      title: [null], description: [null], imageUrl: [null], location: [null]
-    });
+      title: [null, [Validators.required]],
+      description: [null,  [Validators.required]],
+      imageUrl: [null,  [Validators.required]],
+      location: [null,  [Validators.required]]
+    }, {updateOn: 'blur'});
+    this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
+      map(formValue => ({...formValue, createdDate: new Date, id: 0}))
+    );
+
   }
   onSubmitForm(){
-    console.log(this.snapForm.value);
+    this.faceSnapsService.addNewFaceSnap(this.snapForm.value);
+    this.router.navigateByUrl('/facesnaps').then();
   }
 
 }

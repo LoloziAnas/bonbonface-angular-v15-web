@@ -31,6 +31,16 @@ export class FaceSnapsService {
       snaps: 98
     }
   ];
+  /*Function that add a new FaceSnaps Object to the array*/
+  addNewFaceSnap(faceSnapForm: {title:string, description: string, imageUrl: string, location?:string}){
+    const faceSnap = {
+      ...faceSnapForm,
+      createdDate: new Date(),
+      snaps:0,
+      id: this.faceSnaps[this.faceSnaps.length-1].id + 1
+    }
+    this.faceSnaps.push(faceSnap);
+  }
   /*Function that return all the face snaps from the backend*/
   getAllFaceSnaps():FaceSnap[]{
     return this.faceSnaps;

@@ -1,6 +1,29 @@
 <div class="form-card">
   <h2>NEW FACE BON</h2>
   <form [formGroup]="snapForm">
-
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input formControlName="title" id="title" name="title" type="text"/>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea formControlName="description" id="description" name="title" type="text" rows="4"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Image Url</label>
+      <input formControlName="imageUrl" id="imageUrl" name="imageUrl" type="text"/>
+    </div>
+    <div class="form-group">
+      <label>Location</label>
+      <input formControlName="location" id="location" name="location" type="text"/>
+    </div>
+    <button (click)="onSubmitForm()" [disabled]="snapForm.invalid" type="submit">Save</button>
   </form>
+</div>
+<div class="face-snap-card" *ngIf="faceSnapPreview$ | async as faceSnap">
+  <h2>{{faceSnap.title | uppercase}}</h2>
+  <p>Published in {{faceSnap.createdDate | date: 'd MMMM yyyy HH:mm' }}</p>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title" />
+  <p>{{faceSnap.description}}</p>
+  <p *ngIf="faceSnap.location">Picture taken in {{faceSnap.location}}</p>
 </div>
