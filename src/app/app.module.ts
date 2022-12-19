@@ -11,6 +11,7 @@ import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.compon
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewFaceBonComponent } from './new-face-bon/new-face-bon.component';
 import {HttpClientModule} from "@angular/common/http";
+import {httpInterceptorProviders} from "./services";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import {HttpClientModule} from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
