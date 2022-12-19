@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FaceSnap} from "../models/FaceSnap";
 import {FaceSnapsService} from "../services/face-snaps.service";
 import {ActivatedRoute} from "@angular/router";
+import {Observable, tap} from "rxjs";
 
 @Component({
   selector: 'app-face-bon-detail',
@@ -9,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./face-bon-detail.component.scss']
 })
 export class FaceBonDetailComponent implements OnInit {
-
+  faceSnap$!: Observable<FaceSnap>;
   faceSnap!: FaceSnap;
   buttonText!: string;
   /*Class construct to inject the FaceSnapService and ActivatedRoute
@@ -24,16 +25,19 @@ export class FaceBonDetailComponent implements OnInit {
     // Return the faceSnap identifier from the activated route.
     const faceSnapId = +this.route.snapshot.params['id'];
     // Return the faceSnap object from the backend using the service.
-    this.faceSnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
+    this.faceSnap$ = this.faceSnapsService.getFaceSnapById(faceSnapId);
   }
 
-  onSnap(){
+  onSnap(faceSnapId: number){
     if (this.buttonText === 'Oh Snap!'){
-      this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap');
-      this.buttonText = 'Oops, unSnap!'
+      this.faceSnapsService.snapFaceSnapById(faceSnapId, 'snap').pipe(
+        tap(() => this.buttonText = 'Oops, unSnap!')
+      ).subscribe();
+
     }else{
-      this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap');
-      this.buttonText = 'Oh Snap!';
+      this.faceSnapsService.snapFaceSnapById(faceSnapId, 'unsnap').pipe(
+        tap( () => this.buttonText = 'Oh Snap!')
+      ).subscribe();
     }
   }
 

@@ -10,6 +10,7 @@ import { LoadingPageComponent } from './loading-page/loading-page.component';
 import { FaceBonDetailComponent } from './face-bon-detail/face-bon-detail.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NewFaceBonComponent } from './new-face-bon/new-face-bon.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NewFaceBonComponent } from './new-face-bon/new-face-bon.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
