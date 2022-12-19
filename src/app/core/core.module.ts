@@ -3,6 +3,7 @@ import {CommonModule, registerLocaleData} from '@angular/common';
 import {httpInterceptorProviders} from "./services";
 import {HeaderComponent} from "./components/header/header.component";
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent
