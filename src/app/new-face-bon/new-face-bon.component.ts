@@ -17,20 +17,25 @@ export class NewFaceBonComponent implements OnInit {
   constructor(private faceSnapsService: FaceSnapsService ,private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    //Build a reactive form with a specific attributes (title, description, imageUrl, location).
     this.snapForm = this.formBuilder.group({
       title: [null, [Validators.required]],
       description: [null,  [Validators.required]],
       imageUrl: [null,  [Validators.required]],
       location: [null,  [Validators.required]]
     }, {updateOn: 'blur'});
+
     this.faceSnapPreview$ = this.snapForm.valueChanges.pipe(
       map(formValue => ({...formValue, createdDate: new Date, id: 0}))
     );
 
   }
+  /**/
   onSubmitForm(){
-    this.faceSnapsService.addNewFaceSnap(this.snapForm.value);
-    this.router.navigateByUrl('/facesnaps').then();
+    this.faceSnapsService.addNewFaceSnap(this.snapForm.value).pipe(
+      tap(()=> this.router.navigateByUrl('/facesnaps'))
+    ).subscribe();
+
   }
 
 }

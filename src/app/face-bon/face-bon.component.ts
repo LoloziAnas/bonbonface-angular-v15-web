@@ -21,4 +21,8 @@ export class FaceBonComponent implements OnInit {
   onViewFaceSnap() {
     this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`).then();
   }
+
+  onDeleteFaceSnap() {
+    this.faceSnapsService.deleteFaceSnap(this.faceSnap.id);
+  }
 }

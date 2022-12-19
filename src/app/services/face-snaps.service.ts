@@ -10,12 +10,23 @@ export class FaceSnapsService {
 
   /*Function that add a new FaceSnaps Object to the array*/
   addNewFaceSnap(faceSnapForm: {title:string, description: string, imageUrl: string, location?:string}){
-    const faceSnap = {
+    /*const faceSnap = {
       ...faceSnapForm,
       createdDate: new Date(),
       snaps:0,
       //id: this.faceSnaps[this.faceSnaps.length-1].id + 1
-    }
+    }*/
+    // this.http.post('http://localhost:3000/facesnaps', faceSnap);
+
+    console.log(`face snap form ${faceSnapForm.description}`);
+
+    return this.getAllFaceSnaps().pipe(
+      map(faceSnap => [...faceSnap].sort((a, b) => a.id - b.id)),
+      map(sortedFaceSnaps => sortedFaceSnaps[sortedFaceSnaps.length - 1]),
+      map(previousFaceSnap => ({...faceSnapForm, snaps: 0, createdDate: new Date(), id: previousFaceSnap.id + 1
+      })),
+      switchMap(newFaceSnap => this.http.post<FaceSnap>('http://localhost:3000/facesnaps/', newFaceSnap ))
+    );
     //this.faceSnaps.push(faceSnap);
   }
   constructor(private http:HttpClient) {
@@ -45,5 +56,8 @@ export class FaceSnapsService {
       )
     );
 
+  }
+  deleteFaceSnap(faceSnapId: number):Observable<FaceSnap>{
+    return this.http.delete<FaceSnap>(`https://localhost:3000/facesnaps/${faceSnapId}`);
   }
 }
