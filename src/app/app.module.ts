@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { FaceBonComponent } from './face-bon/face-bon.component';
+import { SingleFaceBonComponent } from './single-face-bon/single-face-bon.component';
 import { FaceBonListComponent } from './face-bon-list/face-bon-list.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
@@ -15,7 +15,7 @@ import {CoreModule} from "./core/core.module";
 @NgModule({
   declarations: [
     AppComponent,
-    FaceBonComponent,
+    SingleFaceBonComponent,
     FaceBonListComponent,
     LoadingPageComponent,
     FaceBonDetailComponent,

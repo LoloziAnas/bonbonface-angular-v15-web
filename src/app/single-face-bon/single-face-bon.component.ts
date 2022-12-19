@@ -5,10 +5,10 @@ import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-face-bon',
-  templateUrl: './face-bon.component.html',
-  styleUrls: ['./face-bon.component.scss']
+  templateUrl: './single-face-bon.component.html',
+  styleUrls: ['./single-face-bon.component.scss']
 })
-export class FaceBonComponent implements OnInit {
+export class SingleFaceBonComponent implements OnInit {
 
   @Input() faceSnap!: FaceSnap;
 
