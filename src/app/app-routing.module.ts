@@ -6,9 +6,7 @@ import {FaceBonDetailComponent} from "./face-bons/components/face-bon-detail/fac
 import {NewFaceBonComponent} from "./face-bons/components/new-face-bon/new-face-bon.component";
 
 const routes: Routes = [
-  { path: 'facesnaps', component: FaceBonListComponent },
-  { path: 'facesnaps/:id', component: FaceBonDetailComponent },
-  { path: 'create', component: NewFaceBonComponent },
+  { path: 'facesnaps', loadChildren:() => import('./face-bons/face-bons.module').then(m => m.FaceBonsModule)},
   { path: '', component: LoadingPageComponent }
 ];
 

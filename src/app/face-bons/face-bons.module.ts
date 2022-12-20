@@ -7,7 +7,7 @@ import {SingleFaceBonComponent} from "./components/single-face-bon/single-face-b
 import {FaceBonListComponent} from "./components/face-bon-list/face-bon-list.component";
 import {NewFaceBonComponent} from "./components/new-face-bon/new-face-bon.component";
 import {FaceBonDetailComponent} from "./components/face-bon-detail/face-bon-detail.component";
-
+import {FaceBonsRoutingModule} from "./face-bons-routing.module";
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import {FaceBonDetailComponent} from "./components/face-bon-detail/face-bon-deta
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FaceBonsRoutingModule
   ]
 })
 export class FaceBonsModule { }
