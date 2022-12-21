@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {CoreModule} from "./core/core.module";
 import {FaceBonsModule} from "./face-bons/face-bons.module";
 import {LoadingPageModule} from "./loading-page/loading-page.module";
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
@@ -14,8 +15,8 @@ import {LoadingPageModule} from "./loading-page/loading-page.module";
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    FaceBonsModule,
-    LoadingPageModule
+    LoadingPageModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
