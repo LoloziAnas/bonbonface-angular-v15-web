@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../core/services/auth.service";
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -8,13 +9,18 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private authService: AuthService, private router: Router) { }
+  loginForm!: FormGroup;
+  constructor(private authService: AuthService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]]
+    })
   }
   onLogin(){
     this.authService.login();
+    console.log(`user: ${this.loginForm.value} and password: ${this.loginForm.value}`)
     this.router.navigateByUrl('/facesnaps');
   }
 
