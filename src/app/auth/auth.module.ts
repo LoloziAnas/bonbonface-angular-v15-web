@@ -18,6 +18,10 @@ import {RouterModule} from "@angular/router";
     RouterModule,
     HttpClientModule,
     AuthRoutingModule
+  ],
+  exports:[
+    RouterModule,
+    LoginComponent
   ]
 })
 export class AuthModule { }
