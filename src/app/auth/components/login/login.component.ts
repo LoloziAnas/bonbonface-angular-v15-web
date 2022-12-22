@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   onLogin(){
     this.authService.login();
     console.log(`user: ${this.loginForm.value.username} and password: ${this.loginForm.value.password}`)
-    this.router.navigateByUrl('/facesnaps').then();
+    this.router.navigateByUrl('/facesnaps')
   }
 
 }

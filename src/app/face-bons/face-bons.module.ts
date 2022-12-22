@@ -22,7 +22,7 @@ import {FaceBonsRoutingModule} from "./face-bons-routing.module";
     ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
-    FaceBonsRoutingModule
+    FaceBonsRoutingModule,
   ]
 })
 export class FaceBonsModule { }
